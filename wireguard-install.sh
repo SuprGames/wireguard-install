@@ -97,14 +97,13 @@ read -rp "Public external IPv4 address: " -e -i "$SERVER_PUB_IPV4" SERVER_PUB_IP
 
 # Detect public interface and pre-fill for the user
 SERVER_PUB_NIC="$(ip -4 route ls | grep default | grep -Po '(?<=dev )(\S+)' | head -1)"
-read -rp "Public interface: " -e -i "$SERVER_PUB_NIC" SERVER_PUB_NIC
+read -rp "Public interface, WireGuard Virtual Network Device: " -e -i "$SERVER_PUB_NIC" SERVER_PUB_NIC
 
 SERVER_WG_NIC="wg0"
 read -rp "WireGuard interface name: " -e -i "$SERVER_WG_NIC" SERVER_WG_NIC
 
-SERVER_WG_IPV4="10.66.66.1"
-read -rp "Server's WireGuard IPv4: " -e -i "$SERVER_WG_IPV4" SERVER_WG_IPV4
-
+SERVER_WG_IPV4="10.0.100.1"
+read -rp "Server's WireGuard IPv4, check it is a valid VPC IP: " -e -i "$SERVER_WG_IPV4" SERVER_WG_IPV4
 
 # Generate random number within private ports range
 SERVER_PORT=$(shuf -i49152-65535 -n1)
