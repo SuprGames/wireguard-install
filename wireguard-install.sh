@@ -7,14 +7,6 @@ function addClient() {
 	CLIENT_WG_IPV4="10.66.66.2"
 	read -rp "Client's WireGuard IPv4 " -e -i "$CLIENT_WG_IPV4" CLIENT_WG_IPV4
 
-
-	# Adguard DNS by default
-	CLIENT_DNS_1="176.103.130.130"
-	read -rp "First DNS resolver to use for the client: " -e -i "$CLIENT_DNS_1" CLIENT_DNS_1
-
-	CLIENT_DNS_2="176.103.130.131"
-	read -rp "Second DNS resolver to use for the client: " -e -i "$CLIENT_DNS_2" CLIENT_DNS_2
-
 	CLIENT_NAME=$(
 		head /dev/urandom | tr -dc A-Za-z0-9 | head -c 10
 		echo ''
@@ -28,7 +20,6 @@ function addClient() {
 	# Create client file and add the server as a peer
 	echo "[Interface]
 PrivateKey = $CLIENT_PRIV_KEY
-DNS = $CLIENT_DNS_1,$CLIENT_DNS_2
 Address = $CLIENT_WG_IPV4/24
 
 [Peer]
