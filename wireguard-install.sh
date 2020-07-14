@@ -4,7 +4,7 @@ function addClient() {
 	# Load params
 	source /etc/wireguard/params
 
-	CLIENT_WG_IPV4="10.66.66.2"
+	CLIENT_WG_IPV4="10.0.100.2"
 	read -rp "Client's WireGuard IPv4 " -e -i "$CLIENT_WG_IPV4" CLIENT_WG_IPV4
 
 	CLIENT_NAME=$(
