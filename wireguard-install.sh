@@ -110,8 +110,8 @@ read -rp "WireGuard interface name: " -e -i "$SERVER_WG_NIC" SERVER_WG_NIC
 SERVER_WG_IPV4="10.0.100.1"
 read -rp "Server's WireGuard IPv4, check it is a valid VPC IP: " -e -i "$SERVER_WG_IPV4" SERVER_WG_IPV4
 
-# Generate random number within private ports range
-SERVER_PORT=$(shuf -i49152-65535 -n1)
+# To generate random number within private ports range change 60005 for: $(shuf -i49152-65535 -n1)
+SERVER_PORT=60005
 read -rp "Server's WireGuard port: " -e -i "$SERVER_PORT" SERVER_PORT
 
 # Install WireGuard tools and module
