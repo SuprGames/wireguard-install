@@ -25,7 +25,7 @@ function addClient() {
 	# Create client file and add the server as a peer
 	echo "[Interface]
 PrivateKey = $CLIENT_PRIV_KEY
-Address = $CLIENT_WG_IPV4/24
+Address = $CLIENT_WG_IPV4/32
 
 [Peer]
 PublicKey = $SERVER_PUB_KEY
