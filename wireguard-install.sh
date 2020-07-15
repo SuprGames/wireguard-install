@@ -19,6 +19,9 @@ function addClient() {
 	CLIENT_PUB_KEY=$(echo "$CLIENT_PRIV_KEY" | wg pubkey)
 	CLIENT_PRE_SHARED_KEY=$(wg genpsk)
 
+	ALLOWED_IPS="10.0.0.0/16"
+	read -rp "VPC CIRD: " -e -i "$ALLOWED_IPS" ALLOWED_IPS
+
 	# Create client file and add the server as a peer
 	echo "[Interface]
 PrivateKey = $CLIENT_PRIV_KEY
@@ -28,7 +31,7 @@ Address = $CLIENT_WG_IPV4/24
 PublicKey = $SERVER_PUB_KEY
 PresharedKey = $CLIENT_PRE_SHARED_KEY
 Endpoint = $ENDPOINT
-AllowedIPs = 0.0.0.0/0" >>"$HOME/$SERVER_WG_NIC-client-$CLIENT_NAME.conf"
+AllowedIPs = $ALLOWED_IPS" >>"$HOME/$SERVER_WG_NIC-client-$CLIENT_NAME.conf"
 
 	# Add the client as a peer to the server
 	echo -e "\n[Peer]
