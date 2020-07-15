@@ -1,11 +1,13 @@
 # WireGuard installer
 
+**ALL CREDIT OF THIS SCRIPT GOES TO AngryStan, I just Forked to ease the deployment inside EC2 Linux Boxes to create a VPN Host**
+
 **This project is a bash script that aims to setup a [WireGuard](https://www.wireguard.com/) VPN on a EC2 Linux box, as easily as possible!**
 
 WireGuard is a point-to-point VPN that can be used in different ways. Here, we mean a VPN as in: the client will forward all its traffic trough an encrypted tunnel to the server.
 The server will apply NAT to the client's traffic so it will appear as if the client is browsing the web with the server's IP.
 
-The script supports IPv4. Please check the [issues](https://github.com/angristan/wireguard-install/issues) for ongoing development, bugs and planned features!
+The script supports IPv4. Please check the [issues](https://github.com/diegomarzo/wireguard-install/issues) for ongoing development, bugs and planned features!
 
 WireGuard does not fit your environment? Check out [openvpn-install](https://github.com/angristan/openvpn-install).
 
@@ -24,7 +26,7 @@ Supported distributions:
 Download and execute the script. Answer the questions asked by the script and it will take care of the rest.
 
 ```bash
-curl -O https://raw.githubusercontent.com/suprgames/wireguard-install/master/wireguard-install.sh
+curl -O https://raw.githubusercontent.com/diegomarzo/wireguard-install/master/wireguard-install.sh
 chmod +x wireguard-install.sh
 ./wireguard-install.sh
 ```
@@ -40,3 +42,6 @@ To generate more client files, run the following:
 Make sure you choose different IPs for you clients.
 
 Contributions are welcome!
+
+The original source:
+https://github.com/angristan/wireguard-install
