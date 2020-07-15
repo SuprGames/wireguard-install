@@ -3,6 +3,8 @@
 function addClient() {
 	# Load params
 	source /etc/wireguard/params
+	
+	ENDPOINT="$SERVER_PUB_IP:$SERVER_PORT"
 
 	CLIENT_WG_IPV4="10.0.100.2"
 	read -rp "Client's WireGuard IPv4 " -e -i "$CLIENT_WG_IPV4" CLIENT_WG_IPV4
