@@ -1,6 +1,6 @@
 # WireGuard installer
 
-**ALL CREDIT OF THIS SCRIPT GOES TO AngryStan, I just Forked to ease the deployment inside EC2 Linux Boxes to create a VPN Host**
+**Disclaimer**: All credit for this script goes to AngryStan, I just Forked to ease the deployment inside EC2 Linux Boxes to create a VPN Host.
 
 **This project is a bash script that aims to setup a [WireGuard](https://www.wireguard.com/) VPN on a EC2 Linux box, as easily as possible!**
 
