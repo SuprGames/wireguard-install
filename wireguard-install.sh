@@ -19,6 +19,9 @@ function addClient() {
 	CLIENT_PUB_KEY=$(echo "$CLIENT_PRIV_KEY" | wg pubkey)
 	CLIENT_PRE_SHARED_KEY=$(wg genpsk)
 
+	CLIENT_PORT=60005
+    read -rp "Client's WireGuard listening port: " -e -i "$CLIENT_PORT" CLIENT_PORT
+
 	ALLOWED_IPS="10.0.0.0/16"
 	read -rp "VPC CIRD: " -e -i "$ALLOWED_IPS" ALLOWED_IPS
 
@@ -26,6 +29,7 @@ function addClient() {
 	echo "[Interface]
 PrivateKey = $CLIENT_PRIV_KEY
 Address = $CLIENT_WG_IPV4/32
+ListenPort = $CLIENT_PORT
 
 [Peer]
 PublicKey = $SERVER_PUB_KEY
